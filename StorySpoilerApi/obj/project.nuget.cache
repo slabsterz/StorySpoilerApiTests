@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FM8LZM3tWB/D2ie2bqH/bIL7bxUqbMMCdu8PQC6ujSfT7VFxHoSdeeZQadb20rxjQafE5b/47KOcYCWXnHoDJQ==",
+  "dgSpecHash": "u2n1KiAvFYNn32xlTzd/veDo4hN74FLrtu2yUXhXuL/v/NrbE7f2UZa0u84a02NCIafJGRxWlgEJyE760k3JzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\slab\\Desktop\\QA-BackEnd-Exam\\StorySpoilerApi\\StorySpoilerApi\\StorySpoilerApi.csproj",
+  "projectFilePath": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\slab\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\slab\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",

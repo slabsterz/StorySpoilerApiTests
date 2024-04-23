@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StorySpoilerApi
-build_property.ProjectDir = C:\Users\slab\Desktop\QA-BackEnd-Exam\StorySpoilerApi\StorySpoilerApi\
+build_property.ProjectDir = C:\Users\slab\Desktop\SoftUni-QA-Automation\QA-Back-End\StorySpoilerApiTests\StorySpoilerApi\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

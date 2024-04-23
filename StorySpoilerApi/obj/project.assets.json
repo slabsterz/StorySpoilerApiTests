@@ -1224,11 +1224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\slab\\Desktop\\QA-BackEnd-Exam\\StorySpoilerApi\\StorySpoilerApi\\StorySpoilerApi.csproj",
+      "projectUniqueName": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApi.csproj",
       "projectName": "StorySpoilerApi",
-      "projectPath": "C:\\Users\\slab\\Desktop\\QA-BackEnd-Exam\\StorySpoilerApi\\StorySpoilerApi\\StorySpoilerApi.csproj",
+      "projectPath": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApi.csproj",
       "packagesPath": "C:\\Users\\slab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\slab\\Desktop\\QA-BackEnd-Exam\\StorySpoilerApi\\StorySpoilerApi\\obj\\",
+      "outputPath": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\slab\\AppData\\Roaming\\NuGet\\NuGet.Config",
