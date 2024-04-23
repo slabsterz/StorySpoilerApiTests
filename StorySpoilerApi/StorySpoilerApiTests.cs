@@ -211,7 +211,7 @@ namespace StorySpoilerApi
             // Assert
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
 
-        }
+        }       
 
         [Test]
         public void Post_CreateStorySpoilers_ShouldReturnCreatedSpoilersWithDifferentIds_WhenGivenSameTitle()
@@ -251,6 +251,23 @@ namespace StorySpoilerApi
                     Assert.That(matchingTitles[i].Id, Is.Not.EqualTo(matchingTitles[i - 1].Id));
                 }                
             }         
+
+        }
+
+        [Test]
+        public void Get_SearchForStory_ShouldReturnBadRequest_WhenGivenInvalidStoryTitle()
+        {
+            // Arrange
+            var request = new RestRequest("/api/Story/Search?keyword=invalidTitle");
+            string responseMessage = "No spoilers...";
+
+            // Act
+            var response = this.client.Execute(request);
+            var responseJson = JsonSerializer.Deserialize<ApiResponseDto>(response.Content);
+
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
+            Assert.That(responseJson.Message, Is.EqualTo(responseMessage));
 
         }
 

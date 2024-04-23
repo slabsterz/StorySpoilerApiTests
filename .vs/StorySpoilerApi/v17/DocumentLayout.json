@@ -50,7 +50,8 @@
               "RelativeToolTip": "StorySpoilerApi\\Models\\ApiResponseDto.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T05:52:04.009Z"
+              "WhenOpened": "2024-04-23T05:52:04.009Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -70,9 +71,9 @@
               "Title": "StorySpoilerApiTests.cs",
               "DocumentMoniker": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApiTests.cs",
               "RelativeDocumentMoniker": "StorySpoilerApi\\StorySpoilerApiTests.cs",
-              "ToolTip": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApiTests.cs",
-              "RelativeToolTip": "StorySpoilerApi\\StorySpoilerApiTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAJAAAA",
+              "ToolTip": "C:\\Users\\slab\\Desktop\\SoftUni-QA-Automation\\QA-Back-End\\StorySpoilerApiTests\\StorySpoilerApi\\StorySpoilerApiTests.cs*",
+              "RelativeToolTip": "StorySpoilerApi\\StorySpoilerApiTests.cs*",
+              "ViewState": "AQIAAPsAAAAAAAAAAAAkwAgBAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-23T05:47:20.431Z",
               "EditorCaption": ""
