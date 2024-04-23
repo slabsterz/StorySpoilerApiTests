@@ -31,6 +31,23 @@ namespace StorySpoilerApi
 
         }
 
+        [OneTimeTearDown]
+        public void TearDown()
+        {
+            var getAllRequest = new RestRequest("/api/Story/All", Method.Get);
+
+            var getAllResponse = this.client.Execute(getAllRequest);
+            var allStoriesJson = JsonSerializer.Deserialize<List<StorySpoilerDto>>(getAllResponse.Content);
+
+            foreach (var story in allStoriesJson)
+            {
+                storyId = story.Id;
+
+                var deleteRequest = new RestRequest($"/api/Story/Delete/{storyId}", Method.Delete);
+                this.client.Execute(deleteRequest);
+            }
+        }
+
         private string GetToken(string username, string password)
         {
             var authClient = new RestClient(url);
@@ -193,6 +210,47 @@ namespace StorySpoilerApi
 
             // Assert
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
+
+        }
+
+        [Test]
+        public void Post_CreateStorySpoilers_ShouldReturnCreatedSpoilersWithDifferentIds_WhenGivenSameTitle()
+        {
+            // Arrange        
+            RestResponse postRequest = null;            
+            int storyPosts = 2;
+
+            var story = new StorySpoilerDto
+            {
+                Title = "TitleTest",
+                Description = "Description",
+            };
+
+            for(int i = 0; i < storyPosts; i++)
+            {
+                var request = new RestRequest("/api/Story/Create", Method.Post);
+                request.AddJsonBody(story);
+
+                postRequest = this.client.Execute(request);                
+            }
+
+            // Act
+            var matchingTitleRequest = new RestRequest($"/api/Story/Search?keyword={story.Title}", Method.Get);
+            var responseGet = this.client.Execute(matchingTitleRequest);
+            var matchingTitles = JsonSerializer.Deserialize<List<StorySpoilerDto>>(responseGet.Content);            
+
+            // Assert
+            Assert.That(postRequest.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+            Assert.That(responseGet.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+
+            for (int i = 1; i <= matchingTitles.Count(); i++)
+            {
+                if(i < matchingTitles.Count())
+                {
+                    Assert.That(matchingTitles[i].Title, Is.EqualTo(matchingTitles[i - 1].Title));
+                    Assert.That(matchingTitles[i].Id, Is.Not.EqualTo(matchingTitles[i - 1].Id));
+                }                
+            }         
 
         }
 

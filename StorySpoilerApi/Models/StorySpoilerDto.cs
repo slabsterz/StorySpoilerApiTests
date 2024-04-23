@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StorySpoilerApi.Models
 {
-    public class StorySpoilerDto
+    public class StorySpoilerDto : IStoryId
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }
