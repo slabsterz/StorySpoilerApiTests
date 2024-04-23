@@ -13,6 +13,7 @@ namespace StorySpoilerApi.Models
         public string Message { get; set; }
 
         [JsonPropertyName("storyId")]
-        public string StoryId { get; set; }
+        public string Id { get; set; }        
+
     }
 }

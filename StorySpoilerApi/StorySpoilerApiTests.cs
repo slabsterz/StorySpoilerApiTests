@@ -15,6 +15,7 @@ namespace StorySpoilerApi
         private string password = "abc123";
 
         private static string storyId;
+        private static string lastStoryTitle;
 
         [OneTimeSetUp]
         public void Setup()
@@ -63,6 +64,7 @@ namespace StorySpoilerApi
             }
         }
         
+        // Positive tests
         [Test, Order(1)]
         public void Post_CreateNewStory_ShouldCreateNewStory_WhenGivenValidInput()
         {
@@ -85,14 +87,53 @@ namespace StorySpoilerApi
 
             // Assert
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
-            Assert.That(responseJson.StoryId, Is.Not.Empty);
+            Assert.That(responseJson.Id, Is.Not.Empty);
             Assert.That(responseJson.Message, Is.EqualTo(creationMessage));
 
-            storyId = responseJson.StoryId;
+            storyId = responseJson.Id;
 
-        }      
+        }
 
         [Test, Order(2)]
+        public void Get_SearchAllStorySpoilers_ShouldReturnAllAvailableStorySpoilers()
+        {
+            // Arrange
+            var request = new RestRequest($"/api/Story/All", Method.Get);
+
+            // Act
+            var response = this.client.Execute(request);
+            var responseJson = JsonSerializer.Deserialize<List<StorySpoilerDto>>(response.Content);
+            var lastStory = responseJson.Last();
+
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(responseJson.Count, Is.AtLeast(1));
+            Assert.That(lastStory.Id, Is.EqualTo(storyId));
+
+            lastStoryTitle = lastStory.Title;
+
+        }
+
+        [Test, Order(3)]  
+        public void Get_SearchStorySpoilByTitle_ShouldReturnStory_WhenGivenExistingTitle()
+        {
+            // Arrange
+            var request = new RestRequest($"/api/Story/Search?keyword={lastStoryTitle}");
+            var title = lastStoryTitle;
+
+            // Act
+            var response = this.client.Execute(request);
+            var responseJson = JsonSerializer.Deserialize<List<StorySpoilerDto>>(response.Content);
+            var foundStoryByTitle = responseJson.FirstOrDefault();
+
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(responseJson.Count, Is.AtLeast(1));
+            Assert.That(foundStoryByTitle, Is.Not.Null);
+            Assert.That(foundStoryByTitle.Title, Is.EqualTo(title));
+        }
+
+        [Test, Order(4)]
         public void Put_EditCreatedStory_ShouldEditStory_WhenGivenValidInputAndStoryId()
         {
             // Arrange
@@ -118,7 +159,7 @@ namespace StorySpoilerApi
 
         }
 
-        [Test, Order(3)]
+        [Test, Order(5)]
         public void Delete_DeleteStory_ShouldDeleteStory_WhenGivenValidStoryId()
         {
             // Arrange
@@ -136,7 +177,8 @@ namespace StorySpoilerApi
 
         }
 
-        [Test, Order(4)]
+        // Negative tests
+        [Test]
         public void Post_CreateStory_ShouldReturn_BadRequest_WhenGivenInvalidInput()
         {
             // Arrange
@@ -154,7 +196,7 @@ namespace StorySpoilerApi
 
         }
 
-        [Test, Order(5)]
+        [Test]
         public void Put_EditStory_ShouldReturn_NotFound_WhenGivenInvalidStoryId()
         {
             // Arrange
@@ -176,7 +218,7 @@ namespace StorySpoilerApi
 
         }
 
-        [Test, Order(6)]
+        [Test]
         public void Delete_DeleteStory_ShouldReturn_BadRequest_WhenGivenInvalidStoryId()
         {
             // Arrange

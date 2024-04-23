@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StorySpoilerApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bcc5269e387e71b6592be13935512ab3c8b4075")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f0680b642b801302f998376468afbb5e6d915a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("StorySpoilerApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StorySpoilerApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
